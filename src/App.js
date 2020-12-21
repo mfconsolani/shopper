@@ -7,6 +7,7 @@ import { items } from './static-data';
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('items');
+  const [cart, setCart] = useState([]);
 
   return (
     <div className='App'>
