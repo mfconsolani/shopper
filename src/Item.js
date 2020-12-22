@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Items.css';
+import './Item.css';
 
 const Item = ({ item, onAddToCart }) => (
     <div className='Item'>

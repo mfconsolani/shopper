@@ -9,24 +9,39 @@ const App = () => {
   const [activeTab, setActiveTab] = useState('items');
   const [cart, setCart] = useState([]);
 
+  const addToCart = item => {
+        setCart(prevCart => [...prevCart, item])
+  };
+
   return (
     <div className='App'>
       <Nav 
         activeTab={activeTab}
         onTabChange={setActiveTab}
       />
+      <div>
+        {cart.length} items
+      </div>
       <main className='App-content'>
-        <Content tab={activeTab} />
+        <Content 
+          tab={activeTab} 
+          onAddToCart={addToCart}
+        />
       </main>
     </div>
   );
 };
 
-const Content = ({ tab }) => {
+const Content = ({ tab, onAddToCart }) => {
   switch (tab) {
     default:
       case 'items':
-        return <ItemPage items={items} />;
+        return (
+        <ItemPage 
+          items={items}
+          onAddToCart={onAddToCart}
+          />
+        );
       case 'cart':
         return <span>The cart</span>;
   };
